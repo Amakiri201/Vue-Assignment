@@ -4,15 +4,7 @@ import { Icon } from "@iconify/vue";
 import { v4 as uuid } from "uuid";
 import TaskCard from "./components/TaskCard.vue";
 
-const tasks = ref([
-  {
-    id: uuid(),
-    editing: false,
-    completed: false,
-    created: Date.now(),
-    task: "test data",
-  },
-]);
+const tasks = ref([]);
 const currentInput = ref("");
 
 function handleDelete(id) {
@@ -48,18 +40,18 @@ function handleSubmit() {
 </script>
 
 <template>
-  <!-- <div>
-    <img src="./assets/blob.svg" class="top-right" alt="top background" />
-  </div> -->
+  <div class="blob blob-top-right" />
+  <div class="blob blob-bottom-left" />
+  <div class="blob blob-bottom-right" />
 
   <div class="wrapper">
     <div class="hero">
-      <h1>GOJO</h1>
+      <h1>GOJO SATORU</h1>
       <p>The simplest todo app ever</p>
     </div>
 
     <form @submit.prevent="handleSubmit">
-      <label for="Input" class="input-text">Enter a task</label>
+      <label for="Input" class="label-text">Enter a task</label>
       <section class="hero-footer">
         <input
           class="inputField"
@@ -74,7 +66,7 @@ function handleSubmit() {
       </section>
     </form>
 
-    <div class="card-list">
+    <div>
       <TaskCard
         v-for="(task, index) in tasks"
         :id="task.id"
@@ -94,8 +86,10 @@ function handleSubmit() {
 
 <style scoped>
 .wrapper {
+  z-index: 2;
   width: 100%;
   padding: 0 20px;
+  position: relative;
 }
 .hero {
   display: flex;
@@ -111,33 +105,26 @@ function handleSubmit() {
 }
 
 h1 {
-  font-size: 100px;
+  font-family: "GraphitePro-Bold";
+  font-size: 50px;
+  color: #ffd388;
+  margin-bottom: 20px;
 }
 
 p {
   font-size: 15px;
+  font-family: "GraphitePro-Medium";
 }
 
-.input-text {
+.label-text {
   display: inline-block;
   margin-bottom: 8px;
   margin-left: 10px;
-  color: #ffff;
+  color: #1e304a;
   font-size: 15px;
-  /* color: #1e304a; */
   font-weight: 600;
 }
 
-input {
-  width: 100%;
-  height: 30px;
-  outline: none;
-  box-shadow: none;
-  padding: 0px 16px;
-  border-radius: 5px;
-  outline-width: 1px;
-  border: 1px solid rgb(219, 219, 219);
-}
 .card {
   width: 100%;
   display: flex;
@@ -155,25 +142,24 @@ input {
 .card p {
   font-size: 15px;
   font-weight: bold;
+  letter-spacing: 1px;
   margin-bottom: 10px;
 }
-.card-list {
-}
 
-.Add,
-.Edit,
-.Delete {
-  width: 30px;
-  height: 30px;
+.Add {
+  width: 40px;
+  height: 40px;
   border: none;
   display: flex;
+  font-size: 25px;
+  cursor: pointer;
   color: #273b52;
-  font-size: 20px;
-  border-radius: 10px;
+  border-radius: 50%;
   align-items: center;
+  background: transparent;
   justify-content: center;
-  border: 1px solid #1a2f20;
   background-color: #fdd287;
+  box-shadow: 3px 3px #216e6d;
 }
 
 .Btn-holder {
@@ -193,12 +179,42 @@ input {
 
 .inputField {
   width: 100%;
-  height: 30px;
+  height: 45px;
   outline: none;
-  box-shadow: none;
+  font-size: 12px;
+  font-weight: bold;
   padding: 0px 16px;
-  border-radius: 5px;
   outline-width: 1px;
+  line-height: normal;
+  border-radius: 15px;
+  letter-spacing: 1px;
+  box-shadow: 3px 3px #216e6d;
+  font-family: "GraphitePro-Medium";
   border: 1px solid rgb(219, 219, 219);
+}
+
+@font-face {
+  font-family: "GraphitePro-Bold";
+  src: local("GraphitePro-Bold"), url("./assets/fonts/GraphitePro-Bold.otf"),
+    format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "GraphitePro-Medium";
+  src: local("GraphitePro-Medium"), url("./assets/fonts/GraphitePro-Medium.otf"),
+    format("truetype");
+  font-weight: Medium;
+}
+@font-face {
+  font-family: "GraphitePro-ExtraLight";
+  src: local("GraphitePro-ExtraLight"),
+    url("./assets/fonts/GraphitePro-ExtraLight.otf"), format("truetype");
+  font-weight: Light;
+}
+
+@media (min-width: 650px) {
+  h1 {
+    font-size: 100px;
+  }
 }
 </style>

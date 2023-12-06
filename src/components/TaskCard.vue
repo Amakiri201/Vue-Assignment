@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, type PropType } from "vue";
 import { Icon } from "@iconify/vue";
+import { useFocus } from "@vueuse/core";
 
 const props = defineProps({
   id: String as PropType<string>,
@@ -68,7 +69,8 @@ function date(timestamp: number) {
       <button v-else class="done" @click="$emit('completed', index)">
         <Icon icon="line-md:confirm-circle" />
       </button>
-      <div>
+
+      <div class="date-wrapper">
         <p
           v-if="!props.editing"
           :class="{
@@ -77,7 +79,13 @@ function date(timestamp: number) {
         >
           {{ props.task }}
         </p>
-        <input type="text" v-else v-model="editedInput" />
+        <input
+          autofocus
+          type="text"
+          v-else
+          v-model="editedInput"
+          class="Input-design"
+        />
         <h2>{{ date(props.created) }}</h2>
       </div>
     </div>
@@ -125,7 +133,6 @@ p {
   font-size: 15px;
 }
 
-
 .card {
   width: 100%;
   display: flex;
@@ -134,7 +141,6 @@ p {
   color: #273b52;
   margin-bottom: 15px;
   align-items: center;
-  border-radius: 15px;
   background-color: #b1f3de;
   box-shadow: 3px 3px #216e6d;
   justify-content: space-between;
@@ -146,20 +152,17 @@ p {
   margin-bottom: 10px;
 }
 
-.Add,
 .Edit,
 .Delete {
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
   border: none;
   display: flex;
   color: #273b52;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
-  border: 1px solid #1a2f20;
-  background-color: #fdd287;
+  background: transparent;
 }
 
 .Btn-holder {
@@ -171,16 +174,34 @@ p {
 .checkbox {
   gap: 10px;
   display: flex;
+  width: 100%;
   align-items: center;
 }
 .done {
-  font-size: 20px;
-  background-color: transparent;
   border: none;
+  font-size: 30px;
+  cursor: pointer;
   color: #1a2f20;
+  background-color: transparent;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+.Input-design {
+  width: 100%;
+  border: none;
+  opacity: 0.5;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  background: transparent;
+  border-bottom: 1px solid #1a2f20;
+}
+
+.date-wrapper {
+  width: 100%;
+  margin-right: 15px;
 }
 </style>

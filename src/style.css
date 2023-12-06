@@ -6,8 +6,61 @@ body {
   height: 100%;
   width: 100%;
   max-width: 650px;
+  /* overflow: hidden; */
   margin: 0 auto;
   color: #ffffff;
+  position: relative;
   font-family: monospace;
   background-color: #288d8d;
 }
+
+.blob {
+  z-index: 1;
+  width: 300px;
+  height: 300px;
+  position: fixed;
+}
+
+.blob-top-right {
+  z-index: 1;
+  top: -160px;
+  right: -300px;
+  width: 350px;
+  height: 350px;
+  transform: rotate(115deg);
+  background-color: #303037;
+  border-bottom-right-radius: 20%;
+}
+
+.blob-bottom-left {
+  left: -180px;
+  bottom: -200px;
+  transform: rotate(80deg);
+  background-color: #b1f3de;
+  border-top-left-radius: 20%;
+}
+
+.blob-bottom-right {
+  right: -210px;
+  bottom: -80px;
+  transform: rotate(-20deg);
+  background-color: #fed287;
+  border-top-left-radius: 30%;
+}
+
+@media (min-width: 1440px) {
+  .blob-top-right {
+    top: -50px;
+    right: -180px;
+  }
+
+  .blob-bottom-left {
+    bottom: -100px;
+  }
+
+  .blob-bottom-right {
+    bottom: 0px;
+    right: -170px;
+  }
+}
+
