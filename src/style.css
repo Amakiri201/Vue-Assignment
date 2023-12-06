@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-family: monospace;
+  background-color: #288d8d;
+}
