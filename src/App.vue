@@ -46,7 +46,7 @@ function handleSubmit() {
 
   <div class="wrapper">
     <div class="hero">
-      <h1>GOJO SATORU</h1>
+      <h1>GOJO</h1>
       <p>The simplest todo app ever</p>
     </div>
 
@@ -128,7 +128,8 @@ p {
 .card {
   width: 100%;
   display: flex;
-  padding: 20px;
+  padding: 0 0px;
+  height: 55px;
   text-align: left;
   color: #273b52;
   margin-bottom: 15px;
@@ -139,19 +140,17 @@ p {
   justify-content: space-between;
 }
 
-.card p {
-  font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
 
 .Add {
   width: 40px;
+  min-width: 40px;
+  max-width: 40px;
   height: 40px;
   border: none;
   display: flex;
-  font-size: 25px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: none;
   cursor: pointer;
   color: #273b52;
   border-radius: 50%;

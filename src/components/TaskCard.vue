@@ -79,8 +79,9 @@ function date(timestamp: number) {
         >
           {{ props.task }}
         </p>
-        <input
+        <textarea
           autofocus
+          rows="3"
           type="text"
           v-else
           v-model="editedInput"
@@ -136,12 +137,13 @@ p {
 .card {
   width: 100%;
   display: flex;
-  padding: 20px;
-  text-align: left;
   color: #273b52;
+  text-align: left;
   margin-bottom: 15px;
   align-items: center;
+  padding: 12px !important;
   background-color: #b1f3de;
+  height: fit-content !important;
   box-shadow: 3px 3px #216e6d;
   justify-content: space-between;
 }
@@ -172,14 +174,13 @@ p {
 }
 
 .checkbox {
-  gap: 10px;
-  display: flex;
   width: 100%;
+  display: flex;
   align-items: center;
 }
 .done {
   border: none;
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
   color: #1a2f20;
   background-color: transparent;
@@ -196,12 +197,13 @@ p {
   outline: none;
   font-size: 15px;
   font-weight: bold;
+  border-radius: 0px;
   background: transparent;
   border-bottom: 1px solid #1a2f20;
 }
 
 .date-wrapper {
   width: 100%;
-  margin-right: 15px;
+  margin: 0px 8px;
 }
 </style>
