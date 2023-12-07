@@ -1,3 +1,4 @@
+
 <script setup>
 import { ref } from "vue";
 import { Icon } from "@iconify/vue";
@@ -114,6 +115,7 @@ h1 {
 p {
   font-size: 15px;
   font-family: "GraphitePro-Medium";
+  word-wrap: break-all;
 }
 
 .label-text {
