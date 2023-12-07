@@ -47,7 +47,7 @@ function handleSubmit() {
   <div class="wrapper">
     <div class="hero">
       <h1>GOJO</h1>
-      <p>The simplest to-do app ever</p>
+      <p>A simplest to-do app </p>
     </div>
 
     <form @submit.prevent="handleSubmit">
