@@ -115,6 +115,7 @@ h1 {
 p {
   font-size: 15px;
   font-family: "GraphitePro-Medium";
+  width:100%;
   word-wrap: break-all;
 }
 
