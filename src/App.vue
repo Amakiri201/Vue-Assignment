@@ -140,7 +140,6 @@ p {
   justify-content: space-between;
 }
 
-
 .Add {
   width: 40px;
   min-width: 40px;
