@@ -81,7 +81,7 @@ function date(timestamp: number) {
         </p>
         <textarea
           autofocus
-          rows="3"
+          rows="2"
           type="text"
           v-else
           v-model="editedInput"
